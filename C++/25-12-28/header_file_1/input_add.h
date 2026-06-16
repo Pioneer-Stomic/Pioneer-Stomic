@@ -1,2 +1,0 @@
-int input();
-int add();

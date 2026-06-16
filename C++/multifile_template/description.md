@@ -1,1 +1,0 @@
-Input ".\main.exe" in terminal before each run!
