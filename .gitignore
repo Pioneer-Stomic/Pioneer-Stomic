@@ -5,3 +5,6 @@ build/
 
 # VSCode 配置
 .vscode/
+C++/*
+!C++/*.cpp
+!C++/*.h
