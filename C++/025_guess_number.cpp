@@ -3,7 +3,7 @@
 
 int main()
 {
-    std::cout << "Welcome to Guess Number Game!\n";
+    std::cout << "欢迎使用猜数游戏!\n";
 
     srand((unsigned int)time(NULL));
     int num = rand() % 100 + 1;
@@ -14,20 +14,20 @@ int main()
 
     while(n >= 1)
     {
-        std::cout << "Input an integer: ";
+        std::cout << "请输入一个整数: ";
         std::cin >> getValue;
 
         if(getValue > num)
         {
-            std::cout << "You guessed too high\n";
+            std::cout << "猜大了\n";
             n--;
-            std::cout << "You have " << n << " chances left\n";
+            std::cout << "你还剩 " << n << " 次机会\n";
         }
         else if(getValue < num)
         {
-            std::cout << "You guessed too low\n";
+            std::cout << "猜小了\n";
             n--;
-            std::cout << "You have " << n << " chances left\n";
+            std::cout << "你还剩 " << n << " 次机会\n";
         }
         else
         {
@@ -36,11 +36,11 @@ int main()
     }
     if(n == 0)
     {
-        std::cout << "Sorry, you've run out of chances\n";
+        std::cout << "对不起, 机会用完了\n";
     }
     else
     {
-        std::cout << "You guessed right!\n";
+        std::cout << "你猜对了! \n";
     }
 
     return 0;
