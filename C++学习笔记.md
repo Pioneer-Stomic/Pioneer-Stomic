@@ -80,3 +80,11 @@ switch 3: break;
 default:
 注意switch后是冒号
 注意: switch判断时只能是整型或字符型, 不可以是区间
+
+### 循环结构
+1. while循环语句:
+语法: while(循环条件){ 循环语句  }
+**注: 生成1~100的随机数 rand() % 100 + 1;**
+**在此之前利用系统时间添加随机数种子 srand((unsigned int)time(NULL));** 
+**头文件要加上#include <ctime>**
+注: 可以利用break退出循环
