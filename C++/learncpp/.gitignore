@@ -1,0 +1,10 @@
+# C++ 编译产物
+*.o
+*.exe
+build/
+
+# VSCode 配置
+.vscode/
+C++/*
+!C++/*.cpp
+!C++/*.h
