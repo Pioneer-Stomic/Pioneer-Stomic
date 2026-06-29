@@ -1,0 +1,17 @@
+**/build/
+**/*.exe
+**/*.o
+**/*.obj
+**/*.out
+
+.vscode/
+**/.vscode/
+
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
+
+*.swp
+*.swo
+*~
