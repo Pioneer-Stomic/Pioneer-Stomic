@@ -4,7 +4,7 @@ int main()
 {
     int num{ 10 };
 
-    int *p;
+    int* p;
     p = &num;
 
     std::cout << "num = " << num << '\n';
