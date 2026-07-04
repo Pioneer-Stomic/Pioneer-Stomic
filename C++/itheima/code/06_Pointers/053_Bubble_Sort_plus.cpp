@@ -10,16 +10,13 @@ int main()
     int len{ sizeof(arr) / sizeof(arr[0]) };
     
     std::cout << "排序前：";
-
-    for (int i{ }; i < len; i++)
-    {
-        std::cout << arr[i] << std::setw(4);
-    }
+    printArray(arr, len);
 
     bubbleSort(arr, len);
 
     std::cout << '\n';
 
+    std::cout << "排序后：";
     printArray(arr, len);
 
     return 0;
@@ -43,8 +40,6 @@ void bubbleSort(int* arr, int len)
 
 void printArray(int* arr, int len)
 {
-    std::cout << "排序后：";
-
     for (int i{ }; i < len; i++)
     {
         std::cout << arr[i] << std::setw(4);
