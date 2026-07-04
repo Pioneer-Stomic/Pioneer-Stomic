@@ -27,7 +27,7 @@ void printInfo2(Student s)
 
 int main()
 {
-    Student s1{ "张三", 18, 100};
+    Student s1{ "张三", 18, 100 };
     printInfo1(&s1);
 
     Student s2{ "李四", 19, 80 };
