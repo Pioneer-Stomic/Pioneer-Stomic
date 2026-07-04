@@ -10,7 +10,7 @@ int main()
         std::cin >> arr[i];
     }
 
-    int max;
+    int max{ };
 
     for(int i{ }; i < 5; i++)
     {
