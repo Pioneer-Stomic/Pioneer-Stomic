@@ -385,5 +385,3 @@ printInfo(&s);
 ```C++
 void printInfo(const Student* p)
 ```
-
- ![]()
