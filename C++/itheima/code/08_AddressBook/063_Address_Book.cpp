@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <fstream>
 
-#define MAX 2
+#define MAX 1000 // Maximum address book capacity
 
 struct Person
 {
+    int number{ };
     std::string name{ };
     int gender{ }; // 1. male  2. female
     int age{ };
@@ -18,6 +20,12 @@ struct AddressBook
     Person personArr[MAX];
     int memberSize{ };
 };
+
+void end()
+{
+    system("pause");
+    system("cls");
+}
 
 void showMenu()
 {
@@ -40,11 +48,13 @@ void addContact(AddressBook* addrBook)
     if(addrBook->memberSize == MAX)
     {
         std::cout << "Address book is full.\n";
-        system("pause");
-        system("cls");
+        end();
     }
     else
     {
+        // Get number
+        addrBook->personArr[addrBook->memberSize].number = addrBook->memberSize + 1;
+        
         // Get name
         std::cout << "Enter the name: ";
         std::cin.ignore();
@@ -55,7 +65,7 @@ void addContact(AddressBook* addrBook)
     
         while(true)
         {
-            std::cout << "Enter the gender(1. male  2. female): ";
+            std::cout << "Enter the gender (1. male  2. female): ";
             std::cin >> getGender;
 
             if(getGender == 1 || getGender == 2)
@@ -72,7 +82,7 @@ void addContact(AddressBook* addrBook)
 
         while(true)
         {
-            std::cout << "Enter the age(0~99): ";
+            std::cout << "Enter the age (0-99): ";
             std::cin >> getAge;
             
             if(getAge >= 0 && getAge <= 99)
@@ -91,28 +101,129 @@ void addContact(AddressBook* addrBook)
 
         // Get home address
         std::cout << "Enter your home address: ";
-        std::cin.ignore();
         std::getline(std::cin, addrBook->personArr[addrBook->memberSize].homeAddress);
 
         // Display result
         std::cout << "New contact has been added successfully.\n";
 
+        // Update contact count
         addrBook->memberSize++;
 
-        system("pause");
-        system("cls");
+        end();
     }
+}
+
+void showContacts(AddressBook* addrBook)
+{
+    if(addrBook->memberSize == 0)
+    {
+        std::cout << "Address book is empty.\n";
+
+        end();
+    }
+    else
+    {
+        for(int i{ }; i < addrBook->memberSize; i++)
+        {
+            std::cout << addrBook->personArr[i].number << "\t";
+            std::cout << "Name: " << addrBook->personArr[i].name << '\n';
+            std::cout << "\tGender: " << (addrBook->personArr[i].gender == 1 ? "male" : "female") << '\n'; // 1 -> male, 2 -> female
+            std::cout << "\tAge: " << addrBook->personArr[i].age << '\n';
+            std::cout << "\tPhone Number: " << addrBook->personArr[i].phoneNumber << '\n';
+            std::cout << "\tHome Address: " << addrBook->personArr[i].homeAddress << '\n' << '\n';
+        }
+
+        end();
+    }
+}
+
+// Judge whether the name you search exists
+int isExist(AddressBook* addrBook, std::string name)
+{
+    for(int i{ }; i < addrBook->memberSize; i++)
+    {
+        if(addrBook->personArr[i].name == name)
+        {
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+void deleteContact(AddressBook* addrBook)
+{
+    if(addrBook->memberSize == 0)
+    {
+        std::cout << "Address book is empty.\n";
+
+        end();
+    }
+    else
+    {
+        std::cout << "Enter the contact you want to delete: ";
+        std::string name{ };
+        std::getline(std::cin, name);
+
+        int result{ isExist(addrBook, name) };
+        if(result == -1)
+        {
+            std::cout << "Contact doesn't exist.\n";
+
+            end();
+        }
+        else
+        {
+            for(int i{ result }; i < addrBook->memberSize; i++) // Shift contacts after the deleted contract one position forward
+            {
+                addrBook->personArr[i] = addrBook->personArr[i + 1];
+            }
+
+            std::cout << "Contact has been deleted.\n";
+
+            end();
+        }
+    }    
+}
+
+void saveContacts(AddressBook* addrBook)
+{
+    std::ofstream file("contacts.txt");
+
+    if(!file.is_open())
+    {
+        std::cout << "Data save failed.\n";
+
+        end();
+        return;
+    }
+
+    file << addrBook->memberSize << '\n';
+
+    for(int i{ }; i < addrBook->memberSize; i++)
+    {
+        file << addrBook->personArr[i].number << '\n';
+        file << addrBook->personArr[i].name << '\n';
+        file << addrBook->personArr[i].gender << '\n';
+        file << addrBook->personArr[i].age << '\n';
+        file << addrBook->personArr[i].phoneNumber << '\n';
+        file << addrBook->personArr[i].homeAddress << '\n';
+    }
+
+    std::cout << "Data saved successfully.\n";
 }
 
 int main()
 {
+    system("cls");
+
     AddressBook addrBook;
     
-    while(true)
+    while(true) // Loop infinitely until user inputs 0
     {
     showMenu();
 
-    int select{ };
+    int select{ }; // Select the function
     std::cin >> select;
 
     switch(select)
@@ -120,10 +231,14 @@ int main()
         case 1: // Add Contact
             addContact(&addrBook);
             break;
-        // case 2: // Show Contacts
-        //     break;
-        // case 3: // Delete Contact
-        //     break;
+        case 2: // Show Contacts
+            showContacts(&addrBook);
+            break;
+        case 3: // Delete Contact
+        {            
+            deleteContact(&addrBook);
+            break;
+        }
         // case 4: // Search Contact
         //     break;
         // case 5: // Update Contact
@@ -131,9 +246,14 @@ int main()
         // case 6: // Clear All Contacts
         //     break;
         case 0: // Exit
+            saveContacts(&addrBook); //Save the information to disk
             std::cout << "Exited the address book.\n";
             return 0;
-            break;                                                                    
+            break;   
+        default:
+            std::cout << "Invalid choice, please try again.\n";        
+            end();
+            break;
     }
     
     }
