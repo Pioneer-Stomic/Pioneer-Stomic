@@ -38,6 +38,8 @@ void showMenu()
     std::cout << "|    4. Search Contact      |\n";
     std::cout << "|    5. Update Contact      |\n";
     std::cout << "|    6. Clear All Contacts  |\n";
+    std::cout << "|    7. Save                |\n";
+    std::cout << "|    8. Load                |\n";        
     std::cout << "|    0. Exit                |\n";
     std::cout << "=============================\n";
 }
@@ -162,10 +164,11 @@ void deleteContact(AddressBook* addrBook)
     else
     {
         std::cout << "Enter the contact you want to delete: ";
-        std::string name{ };
-        std::getline(std::cin, name);
+        std::string getName{ };
+        std::cin.ignore();
+        std::getline(std::cin, getName);
 
-        int result{ isExist(addrBook, name) };
+        int result{ isExist(addrBook, getName) };
         if(result == -1)
         {
             std::cout << "Contact doesn't exist.\n";
@@ -174,43 +177,108 @@ void deleteContact(AddressBook* addrBook)
         }
         else
         {
-            for(int i{ result }; i < addrBook->memberSize; i++) // Shift contacts after the deleted contract one position forward
+            std::cout << "Are you sure to delete the contact " << addrBook->personArr[result].name << " ? (y/n)\n";
+            std::string isDelete{ };
+            std::cin >> isDelete;
+            
+            if(isDelete == "n")
             {
-                addrBook->personArr[i] = addrBook->personArr[i + 1];
+                end();
             }
+            else if(isDelete == "y")
+            {
+                for(int i{ result }; i < addrBook->memberSize - 1; i++) // Shift contacts after the deleted contract one position forward
+                {
+                    addrBook->personArr[i] = addrBook->personArr[i + 1];
+                }
 
-            std::cout << "Contact has been deleted.\n";
+                addrBook->memberSize--;
 
-            end();
+                std::cout << "Contact has been deleted.\n";
+
+                end();
+            }
+            else
+            {
+                std::cout << "Invalid option, please try again.\n";
+
+                end();
+            }
         }
     }    
 }
 
 void saveContacts(AddressBook* addrBook)
 {
-    std::ofstream file("contacts.txt");
+    std::cout << "Are you sure to save data on disk? (y/n): ";
+    std::string isSave{ };
+    std::cin >> isSave;
+
+    if(isSave == "n")
+    {
+        return;
+    }
+    else if(isSave == "y")
+    {
+        std::ofstream file("contacts.txt");
+
+        if(!file.is_open())
+        {
+            std::cout << "Data save failed.\n";
+
+            end();
+            return;
+        }
+
+        file << addrBook->memberSize << '\n';
+
+        for(int i{ }; i < addrBook->memberSize; i++)
+        {
+            file << addrBook->personArr[i].number << '\n';
+            file << addrBook->personArr[i].name << '\n';
+            file << addrBook->personArr[i].gender << '\n';
+            file << addrBook->personArr[i].age << '\n';
+            file << addrBook->personArr[i].phoneNumber << '\n';
+            file << addrBook->personArr[i].homeAddress << '\n';
+        }
+
+        std::cout << "Data saved successfully.\n";
+
+        
+        end();
+    }
+    else
+    {
+        std::cout << "Invalid option, please try again.\n";
+        
+        end();
+    }
+}
+
+void loadContacts(AddressBook* addrBook)
+{
+    std::ifstream file("contacts.txt");
 
     if(!file.is_open())
     {
-        std::cout << "Data save failed.\n";
-
-        end();
-        return;
+        return ;
     }
 
-    file << addrBook->memberSize << '\n';
+    file >> addrBook->memberSize;
 
     for(int i{ }; i < addrBook->memberSize; i++)
     {
-        file << addrBook->personArr[i].number << '\n';
-        file << addrBook->personArr[i].name << '\n';
-        file << addrBook->personArr[i].gender << '\n';
-        file << addrBook->personArr[i].age << '\n';
-        file << addrBook->personArr[i].phoneNumber << '\n';
-        file << addrBook->personArr[i].homeAddress << '\n';
+        file >> addrBook->personArr[i].number;
+        file.ignore();
+        std::getline(file, addrBook->personArr[i].name);
+        file >> addrBook->personArr[i].gender;
+        file >> addrBook->personArr[i].age;
+        file.ignore();
+        std::getline(file, addrBook->personArr[i].phoneNumber);
+        std::getline(file, addrBook->personArr[i].homeAddress);
     }
-
-    std::cout << "Data saved successfully.\n";
+    
+    file.close();
 }
 
 int main()
@@ -218,7 +286,9 @@ int main()
     system("cls");
 
     AddressBook addrBook;
-    
+
+    loadContacts(&addrBook);
+
     while(true) // Loop infinitely until user inputs 0
     {
     showMenu();
@@ -245,13 +315,20 @@ int main()
         //     break;
         // case 6: // Clear All Contacts
         //     break;
+        case 7: // Save
+            saveContacts(&addrBook); // Save the information to disk
+            break;
+        case 8: // Load
+            loadContacts(&addrBook); // Load the information on disk
+            std::cout << "Contacts loaded from contacts.txt\n";
+            end();
+            break;
         case 0: // Exit
-            saveContacts(&addrBook); //Save the information to disk
-            std::cout << "Exited the address book.\n";
+            saveContacts(&addrBook);
             return 0;
             break;   
         default:
-            std::cout << "Invalid choice, please try again.\n";        
+            std::cout << "Invalid option, please try again.\n";        
             end();
             break;
     }
