@@ -32,7 +32,7 @@ int main()
     std::cout << "The memory address of local constant 'c_l_b' is: " << '\t' << &c_l_b << '\n';
 
     std::cout << "The memory address of static constant 's_a' is: " << '\t' << &s_a << '\n';
-    std::cout << "The memory address of static constant 's_a' is: " << '\t' << &s_b << '\n';
+    std::cout << "The memory address of static constant 's_b' is: " << '\t' << &s_b << '\n';
 
     std::cout << "The memory address of string literals 'Hello' is: " << '\t' << &"Hello" << '\n';
 
