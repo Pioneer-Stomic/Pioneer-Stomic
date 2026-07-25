@@ -563,8 +563,6 @@ void func(int = 10, int = 20) {}
 
 **注意：**函数的返回值类型不可以作为函数重载的条件
 
-
-
 ## 类和对象
 
 C++面向对象的三大特征：封装、继承、多态
@@ -594,10 +592,10 @@ class 类名
 class Student
 {
 public:
-       
+
     int age{ };
     std::string name{ };
-    
+
     void showInfo()
     {
         std::cout << age << '\n';
@@ -614,4 +612,14 @@ private: 类内可访问，类外不可
 
 protected: 类内可访问，类外不可‘
 
-**注意：** class和struct的唯一区别在于，当不显式注明权限时，。class默认权限为private，struct默认权限为public
+**注意：** class和struct的唯一区别在于，当不显式注明权限时，class默认权限为private，struct默认权限为public
+
+
+
+### 公有接口
+
+**方法：**将成员属性设置为私有，通过公有的成员函数访问(get)和修改(set)成员属性
+
+**优点1：**通过选择性设置get和set函数可以自己控制读写权限
+
+**有点2：**对于写入权限，可以通过set函数检测函数有效性
