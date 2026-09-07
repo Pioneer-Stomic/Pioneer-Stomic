@@ -6,12 +6,12 @@ int main()
     char op{ };
 
     // 用户输入
-    std::cout << "欢迎使用简易计算器!\n";
-    std::cout << "请输入第一个整数: ";
+    std::cout << "Welcome to the Simple Calculator Program!\n";
+    std::cout << "Enter the first number: ";
     std::cin >> num1;
-    std::cout << "请输入运算符: ";
+    std::cout << "Enter the operator: ";
     std::cin >> op;
-    std::cout << "请输入第二个整数: ";
+    std::cout << "Enter the second number: ";
     std::cin >> num2;
 
     // 判断运算符
@@ -32,7 +32,7 @@ int main()
         case '/':
             if (num2 == 0)
             {
-                std::cout << "错误: 除数不能为0!\n";
+                std::cout << "Error: Divisor cannot be zero!\n";
             }
             else
             {
@@ -41,7 +41,7 @@ int main()
             }
             break;
         default:
-            std::cout << "错误: 无效运算符!\n";
+            std::cout << "Error: Invalid operator!\n";
             break;
     }
 

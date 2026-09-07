@@ -4,22 +4,22 @@ using namespace std;
 int main()
 {
     int num = 0;
-    cout << "请输入一个正整数：";
+    cout << "Enter a positive integer: ";
     cin >> num;
 
-    cout << "你输入了：" << num << '\n';
+    cout << "You entered: " << num << '\n';
 
     if (num > 0 && num%2 == 0)
     {
-        cout << "你输入的正整数是偶数\n";
+        cout << "You entered an even number.\n";
     }
     else if (num > 0 && num%2 == 1)
     {
-        cout << "你输入的正整数是奇数\n";
+        cout << "You entered an odd number.\n";
     }
     else
     {
-        cout << "你输入的不是正整数\n";
+        cout << "The number you entered isn't a positive integer.\n";
     }
 
     return 0;

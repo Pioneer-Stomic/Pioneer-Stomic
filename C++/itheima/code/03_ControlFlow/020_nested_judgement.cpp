@@ -4,28 +4,28 @@ using namespace std;
 int main()
 {
     int score;
-    cout << "请输入成绩: ";
+    cout << "Enter the score: ";
     cin >> score;
 
     if (score >= 60)
     {
-        cout << "及格";
+        cout << "Passed ";
         if (score >= 90)
         {
-            cout << "且优秀\n";
+            cout << "and Excellent\n";
         }
         else if (score >= 80)
         {
-            cout << "且良好\n";
+            cout << "and Good\n";
         }
         else
         {
-            cout << "且一般\n";
+            cout << "and Normal\n";
         }
     }
     else
     {
-        cout << "不及格\n";
+        cout << "Failed\n";
     }
 
     return 0;
