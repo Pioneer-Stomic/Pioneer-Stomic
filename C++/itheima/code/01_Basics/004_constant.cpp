@@ -5,12 +5,12 @@ using namespace std;
 
 int main()
 {
-    cout << "一周有 " << day << " 天" << endl;
+    cout << "A week has " << day << " days" << endl;
 
 
     const int month = 12;
 
-    cout << "一年有 " << month << " 个月" << endl;
+    cout << "A year has " << month << " months" << endl;
 
     return 0;
 }

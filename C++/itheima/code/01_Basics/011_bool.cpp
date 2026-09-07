@@ -9,7 +9,7 @@ int main()
     flag = false;
     cout << "bool flag: " << flag << endl;
 
-    cout << "bool 占用的内存为 " << sizeof(bool) << " 字节" << endl;
+    cout << "bool occupies " << sizeof(bool) << " bytes" << endl;
 
     return 0;
 }

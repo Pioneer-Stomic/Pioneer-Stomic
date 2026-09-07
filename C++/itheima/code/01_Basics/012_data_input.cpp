@@ -5,29 +5,29 @@ using namespace std;
 int main()
 {
     int i;
-    cout << "请输入一个整数: ";
+    cout << "Enter an integer : ";
     cin >> i;
-    cout << "你输入的整数是: " << i << '\n';
+    cout << "The integer you entered is: " << i << '\n';
 
     float f;
-    cout << "请输入一个浮点数: ";
+    cout << "Enter a floating-point number: ";
     cin >> f;
-    cout << "你输入的浮点数是: " << f << '\n';
+    cout << "The floating-point number you entered is: " << f << '\n';
 
     char ch;
-    cout << "请输入一个字符: ";
+    cout << "Enter a character: ";
     cin >> ch;
-    cout << "你输入的字符是: " << ch << '\n';
+    cout << "The character you entered is: " << ch << '\n';
 
     string str;
-    cout << "请输入一个字符串: ";
-    cin >> str; // 只能输入一个单词，遇到空格会停止
-    cout << "你输入的字符串是: " << str << '\n';
+    cout << "Enter a string: ";
+    cin >> str; // Limited to one word; terminates at a space
+    cout << "The string you entered is: " << str << '\n';
 
     bool flag;
-    cout << "请输入一个布尔值 (0 或 1): ";
+    cout << "Enter a Boolean value (0 or 1): ";
     cin >> flag;
-    cout << "你输入的布尔值是: " << flag << '\n';
+    cout << "The Boolean value you entered is: " << flag << '\n';
 
     return 0;
 }

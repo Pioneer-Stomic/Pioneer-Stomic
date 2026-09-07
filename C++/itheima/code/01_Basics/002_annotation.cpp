@@ -3,12 +3,12 @@ using namespace std;
 
 int main()
 {
-    //单行注释
+    //Single-line annotation
 
     /*
-    多行注释1
-    多行注释2
-    多行注释3
+    Multi-line annotation 1
+    Multi-line annotation 2
+    Multi-line annotation 3
     */
     cout << "Hello, World!" << endl;
     

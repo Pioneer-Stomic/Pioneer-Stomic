@@ -4,16 +4,16 @@ using namespace std;
 int main()
 {
     short num1 = 19;
-    cout << "short:占用的内存为 " << sizeof(short) << " 字节" << endl;
+    cout << "short: occupies " << sizeof(short) << " bytes" << endl;
 
     int num2 = 29;
-    cout << "int:占用的内存为 " << sizeof(int) << " 字节" << endl;
+    cout << "int: occupies " << sizeof(int) << " bytes" << endl;
 
     long num3 = 39;
-    cout << "long:占用的内存为 " << sizeof(long) << " 字节" << endl;
+    cout << "long: occupies " << sizeof(long) << " bytes" << endl;
 
     long long num4 = 49;
-    cout << "long long:占用的内存为 " << sizeof(long long) << " 字节" << endl;
+    cout << "long long: occupies " << sizeof(long long) << " bytes" << endl;
 
     return 0;
 }
