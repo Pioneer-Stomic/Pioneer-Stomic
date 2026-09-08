@@ -6,7 +6,7 @@ int main()
 
     for(int i{ }; i < 5; i++)
     {
-        std::cout << "请输入第 " << i + 1 << " 个整数: ";
+        std::cout << "Enter the integer #" << i + 1 << ": ";
         std::cin >> arr[i];
     }
 
@@ -17,7 +17,7 @@ int main()
         max = ( max < arr[i] ? arr[i] : max );
     }
 
-    std::cout << "最大的整数是: " << max <<'\n';
+    std::cout << "The largest integer is: " << max <<'\n';
 
     return 0;
 }

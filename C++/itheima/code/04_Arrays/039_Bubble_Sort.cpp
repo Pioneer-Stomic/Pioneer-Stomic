@@ -2,17 +2,17 @@
 
 int main()
 {
-    // 用户输入整数
+    // Get integers
     int arr[8];
 
-    std::cout << "请输入8个整数, 每输入一个空一格: ";
+    std::cout << "Enter 8 integers, each seperated by a space: ";
     
     for(int i{ }; i < 8; i++)
     {
         std::cin >> arr[i];
     }
 
-    // 进行冒泡排序
+    // Bubble Sort
     for(int i{ }; i < 8 - 1; i++)
     {
         for(int j{ }; j < 8 - i - 1; j++)
@@ -26,8 +26,8 @@ int main()
         }
     }
 
-    // 输出升序数组
-    std::cout << "升序数组: ";
+    // Print ascending array
+    std::cout << "Ascending array: ";
     
     for(int i{ }; i < 8; i++)
     {

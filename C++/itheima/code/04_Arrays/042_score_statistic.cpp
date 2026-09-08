@@ -10,12 +10,12 @@ int main()
         { 80, 70, 90 }
     };
 
-    std::string names[3] = { "张三", "李四", "王五" };
+    std::string names[3] = { "A", "B", "C" };
 
-    // 显示三位同学单科分数
+    // Print the subject scores of the three students
     for(int i{ }; i < 3; i++)
     {
-        std::cout << names[i] << "的单科分数分别为 \n";
+        std::cout << names[i] << "'s individual subject scores are \n";
 
         for(int j{ }; j < 3; j++ )
         {
@@ -25,7 +25,7 @@ int main()
         std::cout << '\n';
     }
 
-    // 统计三位同学各自总分
+    // Calculate the total score of each student
     for(int i{ }; i < 3; i++)
     {
         int sum{ };
@@ -35,7 +35,7 @@ int main()
             sum += scores[i][j];
         }
 
-        std::cout << names[i] << "的总分为 " << sum << " 分\n";
+        std::cout << names[i] << "'s total score is " << sum << '\n';
     }
 
     return 0;

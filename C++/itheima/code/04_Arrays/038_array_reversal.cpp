@@ -2,16 +2,17 @@
 
 int main()
 {
-    // 输出原数组
+    // Print the original array
     int arr[5]= { 1, 3, 2, 4, 5 };
 
     for(int i{ }; i < 5; i++)
     {
         std::cout << arr[i] << " ";
     }
+    
     std::cout << '\n';
 
-    // 输出逆置数组
+    // Reverse the array
     int start{ };
     int end{ 4 };
 
@@ -25,6 +26,7 @@ int main()
         end--;
     }
 
+    // Print the reversed array
     for(int i{ }; i < 5; i++)
     {
         std::cout << arr[i] << " ";
