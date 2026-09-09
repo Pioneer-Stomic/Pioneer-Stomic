@@ -2,13 +2,13 @@
 
 void swap(int num1, int num2)
 { 
-    std::cout << "交换前：" << num1 << " " << num2 << '\n';
+    std::cout << "Before swapping: " << num1 << " " << num2 << '\n';
 
     int temp{ num1 };
     num1 = num2;
     num2 = temp;
 
-    std::cout << "交换后：" << num1 << " " << num2 << '\n';
+    std::cout << "After swapping: " << num1 << " " << num2 << '\n';
 }
 
 int main()

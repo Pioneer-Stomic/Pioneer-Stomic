@@ -10,14 +10,14 @@ int main()
     int num1{ };
     int num2{ };
     
-    std::cout << "请输入第一个整数：";
+    std::cout << "Enter the first integer: ";
     std::cin >> num1;
-    std::cout << "请输入第二个整数：";
+    std::cout << "Enter the second integer: ";
     std::cin >> num2;
 
     int result{ add(num1, num2) };
 
-    std::cout << "两数之和为 " << result <<'\n';
+    std::cout << "The sum of them is: " << result <<'\n';
     
     return 0;
 }
