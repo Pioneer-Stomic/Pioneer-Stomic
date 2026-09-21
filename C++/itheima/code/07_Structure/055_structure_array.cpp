@@ -12,9 +12,9 @@ int main()
 {
     Student stuArr[3] = 
     {
-        { "张三", 18, 100 },
-        { "李四", 19, 80 },
-        { "王五", 17, 60 }
+        { "Student A", 18, 100 },
+        { "Student B", 19, 80 },
+        { "Student C", 17, 60 }
     };
 
     stuArr[2].score = 65;
@@ -22,9 +22,9 @@ int main()
 
     for(int i{ }; i < 3; i++)
     {
-        std::cout << "姓名：" << stuArr[i].name << '\n';
-        std::cout << "年龄：" << stuArr[i].age << '\n';
-        std::cout << "分数：" << stuArr[i].score << '\n';
+        std::cout << "Name: " << stuArr[i].name << '\n';
+        std::cout << "Age: " << stuArr[i].age << '\n';
+        std::cout << "Score: " << stuArr[i].score << '\n';
         std::cout << '\n';
     }
 

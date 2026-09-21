@@ -23,13 +23,13 @@ void allocateSpace(Teacher tchArr[], int tchLen, int stuLen)
     // Create information for teachers
     for(int i{ }; i < tchLen; i++)
     {
-        tchArr[i].tchName = "Teacher_";
+        tchArr[i].tchName = "Teacher ";
         tchArr[i].tchName += nameSeed[i];
 
         // Create information for students
         for(int j{ }; j < stuLen; j++)
         {
-            tchArr[i].stuArr[j].stuName = "Student_";
+            tchArr[i].stuArr[j].stuName = "Student ";
             tchArr[i].stuArr[j].stuName += nameSeed[j];
 
             int randAge{ rand() % 8 + 16 };

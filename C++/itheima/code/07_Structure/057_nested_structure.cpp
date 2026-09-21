@@ -17,28 +17,28 @@ struct Student
 
 void printDate(int year, int month, int day)
 {
-    std::cout << "出生日期：" << year << " 年 " << month << " 月 " << day << " 日" << '\n';
+    std::cout << "Date of birth: " << year << "/" << month << "/" << day << '\n';
 }
 
 void printInfo(std::string name, Date birth, int score)
 {
-    std::cout << "姓名：" << name << '\n';
+    std::cout << "Name: " << name << '\n';
     printDate(birth.year, birth.month, birth.day);
-    std::cout << "分数：" << score << '\n';
+    std::cout << "Score: " << score << '\n';
     std::cout << '\n';
 }
 
 int main()
 {
     Date d1{ 2008, 7, 1 };
-    Student s1 {"张三", d1, 100};
+    Student s1 {"Student A", d1, 100};
 
     printInfo(s1.name, s1.birth, s1.score);
 
     Date d2{ };
     Student s2{ };
 
-    s2.name = "李四";
+    s2.name = "Student B";
     s2.score = 80;
     s2.birth.year = 2010;
     s2.birth.month = 12;

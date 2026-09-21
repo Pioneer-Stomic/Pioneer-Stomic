@@ -8,25 +8,25 @@ struct Student
     int score{ };
 };
 
-// 给学生信息赋值
+// Assign values to students' information
 void getInfo(Student stuArr[], int len)
 {
     for(int i{ }; i < len; i++)
     {
-        // 获取姓名
+        // Get name
         std::string nameSeed{ "ABCDE" };        
-        stuArr[i].name = "同学";
+        stuArr[i].name = "Student ";
         stuArr[i].name += nameSeed[i];
         
-        // 获取分数(随机数)
+        // Get score randomly
         stuArr[i].score = rand() % 61 + 40;
     }
 }
 
-// 对学生分数进行冒泡排序
+// Bubble sort students' scores
 void bubbleSort(Student stuArr[], int len)
 {
-    for(int i{ }; i < len - 1 ; i++)
+    for(int i{ }; i < len - 1; i++)
     {
         for(int j{ }; j < len - i - 1; j++)
         {
@@ -40,12 +40,12 @@ void bubbleSort(Student stuArr[], int len)
     }
 }
 
-// 输出学生信息
+// Print the information of students
 void printInfo(Student stuArr[], int len)
 {
     for(int i{ }; i < len; i++)
     {
-        std::cout << "学生姓名：" << stuArr[i].name << "  " << "分数：" << stuArr[i].score << '\n';
+        std::cout << "Student's name: " << stuArr[i].name << "  " << "Score: " << stuArr[i].score << '\n';
     }
 }
 
@@ -58,12 +58,12 @@ int main()
 
     getInfo(stuArr, len);
 
-    std::cout << "排列前：" << '\n';
+    std::cout << "Before sorting: " << '\n';
     printInfo(stuArr, len);
     
     bubbleSort(stuArr, len);
 
-    std::cout << '\n' << "排列后：" << '\n';
+    std::cout << '\n' << "After sorting: " << '\n';
     printInfo(stuArr, len);
 
     return 0;

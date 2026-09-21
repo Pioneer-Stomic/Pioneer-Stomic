@@ -14,42 +14,42 @@ struct Teacher
     Student stuArr[5];
 };
 
-// 给老师和学生的信息赋值
-void allocateSpace(Teacher tchArr[], int len)
+// Assign values to teachers' and students' information
+void allocateSpace(Teacher tchArr[], int len) // "len" is the number of teachers
 {
     std::string nameSeed{ "ABCDE" };
     
-    // 给老师赋值
+    // Assign values to teachers
     for(int i{ }; i < 3; i++)
     {
-        tchArr[i].tchName = "Teacher_";
+        tchArr[i].tchName = "Teacher ";
         tchArr[i].tchName += nameSeed[i];
         
         for(int j{ }; j < 5; j++)
         {
-            // 给学生赋值
+            // Assign values to students
             int random = rand() % 61 + 40;
             
-            tchArr[i].stuArr[j].stuName = "Student_";
+            tchArr[i].stuArr[j].stuName = "Student ";
             tchArr[i].stuArr[j].stuName += nameSeed[j];
             tchArr[i].stuArr[j].score = random;
         }
     }
 }
 
-// 打印老师和学生的信息
+// Print the information of teachers and students
 void printInfo(Teacher tchArr[], int len)
 {
     for(int i{ }; i < 3; i++)
     {
-        // 打印老师信息
-        std::cout << "老师姓名：" << tchArr[i].tchName << '\n' << '\n';
+        // Print the information of teachers
+        std::cout << "Name of teacher: " << tchArr[i].tchName << '\n' << '\n';
 
         for(int j{ }; j < 5; j++)
         {
-            // 打印学生信息
-            std::cout << "\t学生姓名: " << tchArr[i].stuArr[j].stuName << '\n';
-            std::cout << "\t学生分数: " << tchArr[i].stuArr[j].score << '\n' << '\n';
+            // Print the information of students
+            std::cout << "\tName of students: " << tchArr[i].stuArr[j].stuName << '\n';
+            std::cout << "\tScore of students: " << tchArr[i].stuArr[j].score << '\n' << '\n';
         }
     }
 }
