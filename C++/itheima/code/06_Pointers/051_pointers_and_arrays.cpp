@@ -8,8 +8,8 @@ int main()
 
     for(int i{ }; i < 5; i++)
     {
-        std::cout << "数组中第 " << i + 1 << " 个数字占用的内存地址为 " << p << '\n';
-        std::cout << "数组中第 " << i + 1 << " 个数字为 " << *p << '\n';
+        std::cout << "The memory address of number #" << i + 1 << " in the array is " << p << '\n';
+        std::cout << "The number #" << i + 1 << " in the array is " << *p << '\n';
 
         p++;
     }

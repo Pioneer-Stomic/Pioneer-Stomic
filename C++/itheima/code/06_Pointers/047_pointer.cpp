@@ -8,10 +8,10 @@ int main()
     p = &num;
 
     std::cout << "num = " << num << '\n';
-    std::cout << "num的地址为 " << &num << '\n'; 
-    std::cout << "指针p为 " << p << '\n';
+    std::cout << "The address of num is " << &num << '\n'; 
+    std::cout << "Pointer p is " << p << '\n';
 
-    std::cout << "指针p占用 " << sizeof(p) << " 个字节\n";
+    std::cout << "Pointer p occupies " << sizeof(p) << " bytes\n";
 
     *p = 20;
 

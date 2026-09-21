@@ -6,30 +6,33 @@ int main()
     int b{ 20 };
     int c{ 20 };
 
-    // 常量指针
+    // Pointer to constant
     const int* p1{ &a };
-    std::cout << "*p1修改前: " << *p1 << '\n';
+    std::cout << "*p1 before modification: " << *p1 << '\n';
 
     p1 = &b;
-    std::cout << "*p1修改后: " << *p1 << '\n';
+    std::cout << "*p1 after modification: " << *p1 << '\n';
 
     
-    // 错误：常量指针指向的变量可以发生变化，但变量值不可修改
+    // Error: The variable pointed by a pointer to constant can be changed,
+    // but the variable's value cannot be modified.
     // *p1 = 20;
 
-    // 指针常量
+    // Constant pointer
     int* const p2{ &a };
-    std::cout << "*p2修改前: " << *p2 << '\n';
+    std::cout << "*p2 before modification: " << *p2 << '\n';
 
     *p2 = 20;
-    std::cout << "*p2修改后: " << *p2 << '\n';
+    std::cout << "*p2 after modification: " << *p2 << '\n';
     
-    // 错误：常量指针指向的变量值可以修改，但指向的变量不可修改
+    // Error: The value that the constant pointer points can be modified,
+    // but the pointer cannot be redirected.
     // p2 = &b;
 
     const int* const p3{ &a };
     
-    //错误：const同时修饰指针和常量时，变量和变量值都不可修改
+    // Error: When const modifies both the pointer and the constant,
+    // neither the variable nor the variable's value can be modified.
     // p3 = &b;
     // *p3 = 20;
 

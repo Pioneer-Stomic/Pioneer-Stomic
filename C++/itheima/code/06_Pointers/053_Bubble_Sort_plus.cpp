@@ -9,14 +9,14 @@ int main()
     int arr[10] = { 4, 3, 6, 9, 10, 8, 1, 2, 5, 7 };
     int len{ sizeof(arr) / sizeof(arr[0]) };
     
-    std::cout << "排序前：";
+    std::cout << "Before sorting: ";
     printArray(arr, len);
 
     bubbleSort(arr, len);
 
     std::cout << '\n';
 
-    std::cout << "排序后：";
+    std::cout << "After sorting: ";
     printArray(arr, len);
 
     return 0;

@@ -6,7 +6,7 @@ int main()
     std::cout << p << '\n';
 
     /*
-    错误操作：指向非法的内存空间
+    Invalid operation: pointing to illegal memory space.
     *p = 10;
     std::cout << *p << '\n';
     */

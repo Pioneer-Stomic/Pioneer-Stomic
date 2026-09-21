@@ -7,10 +7,10 @@ int main()
     std::cout << p << '\n';
 
     /* 
-    错误示范：
+    Incorrect example:
     *p = 100;
-    错误，因为编号为0的内存拒绝访问
-    解引用空指针会导致程序崩溃
+    This is wrong because the memory at address 0 denies access.
+    Dereferencing a null pointer causes the program to crash.
     */
 
     int a{ 10 };
