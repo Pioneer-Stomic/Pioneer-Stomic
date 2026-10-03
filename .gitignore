@@ -1,17 +1,25 @@
+# Build output
 **/build/
-**/*.exe
 **/*.o
 **/*.obj
 **/*.out
 
+# Executables (no extension on Linux)
+**/a.out
+
+# VS Code config
 .vscode/
 **/.vscode/
 
+# Logs and temp
 *.log
 *.tmp
+
+# OS files
 Thumbs.db
 .DS_Store
 
+# Editor swap files
 *.swp
 *.swo
 *~
