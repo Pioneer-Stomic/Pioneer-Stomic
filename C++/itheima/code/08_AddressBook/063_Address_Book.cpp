@@ -21,10 +21,21 @@ struct AddressBook
     int memberSize{ };
 };
 
+void clearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
 void end()
 {
-    system("pause");
-    system("cls");
+    std::cout << "Press Enter to continue...";
+    std::cin.ignore(10000, '\n');
+    std::cin.get();
+    clearScreen();
 }
 
 void showMenu()
@@ -383,7 +394,7 @@ void loadContacts(AddressBook* addrBook)
 
 int main()
 {
-    system("cls");
+    clearScreen();
 
     AddressBook addrBook;
 
